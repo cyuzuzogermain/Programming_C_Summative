@@ -1,0 +1,59 @@
+==================================================================
+                    SYSTEM HEALTH REPORT
+==================================================================
+Generated: 2026-11-23 16:32:54 CAT
+Thresholds: CPU 70% | Memory 60% | Disk 50%
+
+---------------------- SYSTEM INFORMATION ------------------------
+Hostname:          fedora
+Operating system:  Fedora Linux 44 (Workstation Edition)
+Kernel version:    7.2.15-200.fc44.x86_64
+Architecture:      x86_64
+Uptime:            up 22 hours, 29 minutes
+Date and time:     Monday, 23 November 2026 16:32:54 CAT
+Current user:      germain
+
+------------------------------ CPU -------------------------------
+CPU usage:         43.3%
+CPU cores:         4
+Load average:      1.19, 1.43, 1.77 (1, 5, 15 min)
+
+Top 5 processes by CPU:
+PID      USER           %CPU   %MEM  COMMAND
+42906    germain        35.7    1.2  chrome
+67398    germain        12.6    1.8  code
+13485    germain         9.3    1.5  chrome
+2406     germain         9.2    1.5  gnome-shell
+59366    germain         6.0    1.0  chrome
+
+----------------------------- MEMORY -----------------------------
+Total memory:      7.5 GiB
+Used memory:       5.6 GiB
+Available memory:  1.9 GiB
+Utilisation:       74.7%
+Swap used:         4.3 GiB of 7.5 GiB
+
+Top 5 processes by memory:
+PID      USER           %CPU   %MEM  COMMAND
+23774    germain         1.4    6.2  chrome
+61993    germain         3.8    4.9  chrome
+28290    germain         0.2    4.8  chrome
+62027    germain         3.1    4.7  chrome
+13401    germain         4.2    4.4  chrome
+
+------------------------------ DISK ------------------------------
+FILESYSTEM                      SIZE    USED   AVAIL  USE%  MOUNTED ON           STATUS
+/dev/nvme0n1p3                  237G    116G    120G   50%  /                    WARNING
+/dev/nvme0n1p3                  237G    116G    120G   50%  /home                WARNING
+/dev/nvme0n1p2                  974M    447M    460M   50%  /boot                WARNING
+/dev/nvme0n1p1                  599M     31M    569M    6%  /boot/efi            OK
+
+---------------------------- WARNINGS ----------------------------
+* Memory usage 74.7% exceeds 60%
+* Disk / (50%) at or above 50%
+* Disk /home (50%) at or above 50%
+* Disk /boot (50%) at or above 50%
+
+Running processes: 375
+==================================================================
+End of report

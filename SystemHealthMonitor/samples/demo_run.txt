@@ -1,0 +1,474 @@
+
+===== SYSTEM HEALTH & RESOURCE MONITOR =====
+ 1) Display system information
+ 2) Monitor CPU utilisation          (threshold 80%)
+ 3) Monitor memory utilisation       (threshold 80%)
+ 4) Monitor disk utilisation         (threshold 85%)
+ 5) View and search running processes
+ 6) Terminate a process
+ 7) Generate a system health report
+ 8) View activity history
+ 9) Clear activity log
+ 0) Exit
+Select an option [0-9]: 
+===== SYSTEM INFORMATION =====
+Hostname:          fedora
+Operating system:  Fedora Linux 44 (Workstation Edition)
+Kernel version:    7.2.15-200.fc44.x86_64
+Architecture:      x86_64
+Uptime:            up 22 hours, 29 minutes
+Date and time:     Monday, 23 November 2026 16:32:50 CAT
+Current user:      germain
+
+===== SYSTEM HEALTH & RESOURCE MONITOR =====
+ 1) Display system information
+ 2) Monitor CPU utilisation          (threshold 80%)
+ 3) Monitor memory utilisation       (threshold 80%)
+ 4) Monitor disk utilisation         (threshold 85%)
+ 5) View and search running processes
+ 6) Terminate a process
+ 7) Generate a system health report
+ 8) View activity history
+ 9) Clear activity log
+ 0) Exit
+Select an option [0-9]: 
+===== CPU UTILISATION =====
+Enter CPU warning threshold in % (1-100) [Enter keeps 80%]: [ERROR] Invalid threshold 'abc'. Enter a whole number between 1 and 100.
+Enter CPU warning threshold in % (1-100) [Enter keeps 80%]: [ERROR] Invalid threshold '150'. Enter a whole number between 1 and 100.
+Enter CPU warning threshold in % (1-100) [Enter keeps 80%]: [INFO] CPU threshold set to 70%.
+[INFO] Sampling CPU usage for 1 second...
+CPU usage:         29.4%
+CPU cores:         4
+Load average:      1.19, 1.43, 1.77 (1, 5, 15 min)
+[INFO] CPU usage is within the 70% threshold.
+
+Top 10 processes by CPU usage:
+PID      USER           %CPU   %MEM  COMMAND
+42906    germain        35.7    1.2  chrome
+67398    germain        12.6    1.8  code
+13485    germain         9.3    1.5  chrome
+2406     germain         9.2    1.5  gnome-shell
+59366    germain         6.0    1.0  chrome
+67144    germain         4.6    0.7  code
+13401    germain         4.2    4.3  chrome
+67459    germain         3.9    3.3  claude
+61993    germain         3.8    4.8  chrome
+67232    germain         3.5    1.4  code
+[INFO] No single process is above 70% CPU.
+
+===== SYSTEM HEALTH & RESOURCE MONITOR =====
+ 1) Display system information
+ 2) Monitor CPU utilisation          (threshold 70%)
+ 3) Monitor memory utilisation       (threshold 80%)
+ 4) Monitor disk utilisation         (threshold 85%)
+ 5) View and search running processes
+ 6) Terminate a process
+ 7) Generate a system health report
+ 8) View activity history
+ 9) Clear activity log
+ 0) Exit
+Select an option [0-9]: 
+===== MEMORY UTILISATION =====
+Enter Memory warning threshold in % (1-100) [Enter keeps 80%]: [INFO] Memory threshold set to 60%.
+Total memory:      7.5 GiB
+Used memory:       5.6 GiB
+Available memory:  1.9 GiB
+Utilisation:       74.8%
+Swap used:         4.3 GiB of 7.5 GiB
+[WARNING] Memory utilisation 74.8% exceeds the 60% threshold!
+
+Top 5 processes by memory usage:
+PID      USER           %CPU   %MEM  COMMAND
+23774    germain         1.4    6.2  chrome
+28290    germain         0.2    4.8  chrome
+61993    germain         3.8    4.8  chrome
+62027    germain         3.1    4.7  chrome
+13401    germain         4.2    4.3  chrome
+
+===== SYSTEM HEALTH & RESOURCE MONITOR =====
+ 1) Display system information
+ 2) Monitor CPU utilisation          (threshold 70%)
+ 3) Monitor memory utilisation       (threshold 60%)
+ 4) Monitor disk utilisation         (threshold 85%)
+ 5) View and search running processes
+ 6) Terminate a process
+ 7) Generate a system health report
+ 8) View activity history
+ 9) Clear activity log
+ 0) Exit
+Select an option [0-9]: 
+===== DISK UTILISATION =====
+Enter Disk warning threshold in % (1-100) [Enter keeps 85%]: [INFO] Disk threshold set to 50%.
+FILESYSTEM                      SIZE    USED   AVAIL  USE%  MOUNTED ON           STATUS
+/dev/nvme0n1p3                  237G    116G    120G   50%  /                    WARNING
+/dev/nvme0n1p3                  237G    116G    120G   50%  /home                WARNING
+/dev/nvme0n1p2                  974M    447M    460M   50%  /boot                WARNING
+/dev/nvme0n1p1                  599M     31M    569M    6%  /boot/efi            OK
+
+[WARNING] Filesystems at or above 50% capacity:
+  / (50%)
+/home (50%)
+/boot (50%)
+
+===== SYSTEM HEALTH & RESOURCE MONITOR =====
+ 1) Display system information
+ 2) Monitor CPU utilisation          (threshold 70%)
+ 3) Monitor memory utilisation       (threshold 60%)
+ 4) Monitor disk utilisation         (threshold 50%)
+ 5) View and search running processes
+ 6) Terminate a process
+ 7) Generate a system health report
+ 8) View activity history
+ 9) Clear activity log
+ 0) Exit
+Select an option [0-9]: 
+===== PROCESS VIEWER =====
+ 1) List running processes
+ 2) Search by process name
+ 3) Search by PID
+ 0) Back to main menu
+Select an option: How many processes to show (sorted by CPU) [default 20, 'all']: [INFO] Total running processes: 376
+PID      USER           %CPU   %MEM  COMMAND
+42906    germain        35.7    1.2  chrome
+67398    germain        12.6    1.8  code
+13485    germain         9.3    1.5  chrome
+2406     germain         9.2    1.5  gnome-shell
+59366    germain         6.0    1.0  chrome
+67144    germain         4.6    0.7  code
+13401    germain         4.2    4.3  chrome
+67459    germain         3.9    3.3  claude
+61993    germain         3.8    4.8  chrome
+67232    germain         3.5    1.4  code
+
+===== PROCESS VIEWER =====
+ 1) List running processes
+ 2) Search by process name
+ 3) Search by PID
+ 0) Back to main menu
+Select an option: Enter process name (or part of it): PID      USER           %CPU   %MEM  COMMAND
+69446    germain         0.0    0.0  sleep
+[INFO] 1 matching process(es).
+
+===== PROCESS VIEWER =====
+ 1) List running processes
+ 2) Search by process name
+ 3) Search by PID
+ 0) Back to main menu
+Select an option: Enter PID: [ERROR] Invalid PID 'abc'. A PID is a positive whole number.
+
+===== PROCESS VIEWER =====
+ 1) List running processes
+ 2) Search by process name
+ 3) Search by PID
+ 0) Back to main menu
+Select an option: Enter PID: [WARNING] No process with PID 999999 is running.
+
+===== PROCESS VIEWER =====
+ 1) List running processes
+ 2) Search by process name
+ 3) Search by PID
+ 0) Back to main menu
+Select an option: [ERROR] Invalid option 'x'. Choose 0-3.
+
+===== PROCESS VIEWER =====
+ 1) List running processes
+ 2) Search by process name
+ 3) Search by PID
+ 0) Back to main menu
+Select an option: 
+===== SYSTEM HEALTH & RESOURCE MONITOR =====
+ 1) Display system information
+ 2) Monitor CPU utilisation          (threshold 70%)
+ 3) Monitor memory utilisation       (threshold 60%)
+ 4) Monitor disk utilisation         (threshold 50%)
+ 5) View and search running processes
+ 6) Terminate a process
+ 7) Generate a system health report
+ 8) View activity history
+ 9) Clear activity log
+ 0) Exit
+Select an option [0-9]: 
+===== TERMINATE A PROCESS =====
+Enter the PID of the process to terminate: PID      PPID     USER         STAT    %CPU   %MEM      ELAPSED  COMMAND
+1        0        root         Ss       0.4    0.1     22:29:47  systemd
+[ERROR] PID 1 (systemd) is a protected system process and will not be terminated.
+
+===== SYSTEM HEALTH & RESOURCE MONITOR =====
+ 1) Display system information
+ 2) Monitor CPU utilisation          (threshold 70%)
+ 3) Monitor memory utilisation       (threshold 60%)
+ 4) Monitor disk utilisation         (threshold 50%)
+ 5) View and search running processes
+ 6) Terminate a process
+ 7) Generate a system health report
+ 8) View activity history
+ 9) Clear activity log
+ 0) Exit
+Select an option [0-9]: 
+===== TERMINATE A PROCESS =====
+Enter the PID of the process to terminate: PID      PPID     USER         STAT    %CPU   %MEM      ELAPSED  COMMAND
+493      1        root         Ss       0.1    0.4     22:29:36  systemd-journal
+[ERROR] Permission denied: PID 493 (systemd-journal) belongs to another user (UID 0).
+
+===== SYSTEM HEALTH & RESOURCE MONITOR =====
+ 1) Display system information
+ 2) Monitor CPU utilisation          (threshold 70%)
+ 3) Monitor memory utilisation       (threshold 60%)
+ 4) Monitor disk utilisation         (threshold 50%)
+ 5) View and search running processes
+ 6) Terminate a process
+ 7) Generate a system health report
+ 8) View activity history
+ 9) Clear activity log
+ 0) Exit
+Select an option [0-9]: 
+===== TERMINATE A PROCESS =====
+Enter the PID of the process to terminate: [ERROR] Invalid PID 'abc'. A PID is a positive whole number.
+
+===== SYSTEM HEALTH & RESOURCE MONITOR =====
+ 1) Display system information
+ 2) Monitor CPU utilisation          (threshold 70%)
+ 3) Monitor memory utilisation       (threshold 60%)
+ 4) Monitor disk utilisation         (threshold 50%)
+ 5) View and search running processes
+ 6) Terminate a process
+ 7) Generate a system health report
+ 8) View activity history
+ 9) Clear activity log
+ 0) Exit
+Select an option [0-9]: 
+===== TERMINATE A PROCESS =====
+Enter the PID of the process to terminate: PID      PPID     USER         STAT    %CPU   %MEM      ELAPSED  COMMAND
+69446    69424    germain      S        0.0    0.0        00:01  sleep
+Are you sure you want to terminate PID 69446 (sleep)? [y/N]: [INFO] Termination cancelled.
+
+===== SYSTEM HEALTH & RESOURCE MONITOR =====
+ 1) Display system information
+ 2) Monitor CPU utilisation          (threshold 70%)
+ 3) Monitor memory utilisation       (threshold 60%)
+ 4) Monitor disk utilisation         (threshold 50%)
+ 5) View and search running processes
+ 6) Terminate a process
+ 7) Generate a system health report
+ 8) View activity history
+ 9) Clear activity log
+ 0) Exit
+Select an option [0-9]: 
+===== TERMINATE A PROCESS =====
+Enter the PID of the process to terminate: PID      PPID     USER         STAT    %CPU   %MEM      ELAPSED  COMMAND
+69446    69424    germain      S        0.0    0.0        00:01  sleep
+Are you sure you want to terminate PID 69446 (sleep)? [y/N]: [INFO] Process 69446 (sleep) terminated successfully.
+
+===== SYSTEM HEALTH & RESOURCE MONITOR =====
+ 1) Display system information
+ 2) Monitor CPU utilisation          (threshold 70%)
+ 3) Monitor memory utilisation       (threshold 60%)
+ 4) Monitor disk utilisation         (threshold 50%)
+ 5) View and search running processes
+ 6) Terminate a process
+ 7) Generate a system health report
+ 8) View activity history
+ 9) Clear activity log
+ 0) Exit
+Select an option [0-9]: 
+===== GENERATE SYSTEM HEALTH REPORT =====
+Directory to save the report [default: /home/germain/Works/Cprogramming/Programming_C_Summative/SystemHealthMonitor/reports]: Directory '/proc/forbidden' does not exist. Create it? [y/N]: [ERROR] Cannot create directory '/proc/forbidden' (permission denied?).
+
+===== SYSTEM HEALTH & RESOURCE MONITOR =====
+ 1) Display system information
+ 2) Monitor CPU utilisation          (threshold 70%)
+ 3) Monitor memory utilisation       (threshold 60%)
+ 4) Monitor disk utilisation         (threshold 50%)
+ 5) View and search running processes
+ 6) Terminate a process
+ 7) Generate a system health report
+ 8) View activity history
+ 9) Clear activity log
+ 0) Exit
+Select an option [0-9]: 
+===== GENERATE SYSTEM HEALTH REPORT =====
+Directory to save the report [default: /home/germain/Works/Cprogramming/Programming_C_Summative/SystemHealthMonitor/reports]: [ERROR] No write permission for directory '/etc'.
+
+===== SYSTEM HEALTH & RESOURCE MONITOR =====
+ 1) Display system information
+ 2) Monitor CPU utilisation          (threshold 70%)
+ 3) Monitor memory utilisation       (threshold 60%)
+ 4) Monitor disk utilisation         (threshold 50%)
+ 5) View and search running processes
+ 6) Terminate a process
+ 7) Generate a system health report
+ 8) View activity history
+ 9) Clear activity log
+ 0) Exit
+Select an option [0-9]: 
+===== GENERATE SYSTEM HEALTH REPORT =====
+Directory to save the report [default: /home/germain/Works/Cprogramming/Programming_C_Summative/SystemHealthMonitor/reports]: Directory '/home/germain/Works/Cprogramming/Programming_C_Summative/SystemHealthMonitor/reports' does not exist. Create it? [y/N]: [INFO] Collecting system data...
+[INFO] Report saved to: /home/germain/Works/Cprogramming/Programming_C_Summative/SystemHealthMonitor/reports/health_report_20261123_163254.txt
+View the report now? [y/N]: ==================================================================
+                    SYSTEM HEALTH REPORT
+==================================================================
+Generated: 2026-11-23 16:32:54 CAT
+Thresholds: CPU 70% | Memory 60% | Disk 50%
+
+---------------------- SYSTEM INFORMATION ------------------------
+Hostname:          fedora
+Operating system:  Fedora Linux 44 (Workstation Edition)
+Kernel version:    7.2.15-200.fc44.x86_64
+Architecture:      x86_64
+Uptime:            up 22 hours, 29 minutes
+Date and time:     Monday, 23 November 2026 16:32:54 CAT
+Current user:      germain
+
+------------------------------ CPU -------------------------------
+CPU usage:         43.3%
+CPU cores:         4
+Load average:      1.19, 1.43, 1.77 (1, 5, 15 min)
+
+Top 5 processes by CPU:
+PID      USER           %CPU   %MEM  COMMAND
+42906    germain        35.7    1.2  chrome
+67398    germain        12.6    1.8  code
+13485    germain         9.3    1.5  chrome
+2406     germain         9.2    1.5  gnome-shell
+59366    germain         6.0    1.0  chrome
+
+----------------------------- MEMORY -----------------------------
+Total memory:      7.5 GiB
+Used memory:       5.6 GiB
+Available memory:  1.9 GiB
+Utilisation:       74.7%
+Swap used:         4.3 GiB of 7.5 GiB
+
+Top 5 processes by memory:
+PID      USER           %CPU   %MEM  COMMAND
+23774    germain         1.4    6.2  chrome
+61993    germain         3.8    4.9  chrome
+28290    germain         0.2    4.8  chrome
+62027    germain         3.1    4.7  chrome
+13401    germain         4.2    4.4  chrome
+
+------------------------------ DISK ------------------------------
+FILESYSTEM                      SIZE    USED   AVAIL  USE%  MOUNTED ON           STATUS
+/dev/nvme0n1p3                  237G    116G    120G   50%  /                    WARNING
+/dev/nvme0n1p3                  237G    116G    120G   50%  /home                WARNING
+/dev/nvme0n1p2                  974M    447M    460M   50%  /boot                WARNING
+/dev/nvme0n1p1                  599M     31M    569M    6%  /boot/efi            OK
+
+---------------------------- WARNINGS ----------------------------
+* Memory usage 74.7% exceeds 60%
+* Disk / (50%) at or above 50%
+* Disk /home (50%) at or above 50%
+* Disk /boot (50%) at or above 50%
+
+Running processes: 375
+==================================================================
+End of report
+
+===== SYSTEM HEALTH & RESOURCE MONITOR =====
+ 1) Display system information
+ 2) Monitor CPU utilisation          (threshold 70%)
+ 3) Monitor memory utilisation       (threshold 60%)
+ 4) Monitor disk utilisation         (threshold 50%)
+ 5) View and search running processes
+ 6) Terminate a process
+ 7) Generate a system health report
+ 8) View activity history
+ 9) Clear activity log
+ 0) Exit
+Select an option [0-9]: 
+===== ACTIVITY HISTORY =====
+Filter by keyword, e.g. WARNING (Enter shows everything): [2026-11-23 16:32:50] [INFO   ] [user:germain] Session started
+[2026-11-23 16:32:50] [INFO   ] [user:germain] Displayed system information
+[2026-11-23 16:32:50] [INFO   ] [user:germain] CPU threshold set to 70%
+[2026-11-23 16:32:51] [INFO   ] [user:germain] CPU usage 29.4% (threshold 70%)
+[2026-11-23 16:32:51] [INFO   ] [user:germain] Memory threshold set to 60%
+[2026-11-23 16:32:51] [INFO   ] [user:germain] Memory usage 74.8% (threshold 60%)
+[2026-11-23 16:32:51] [WARNING] [user:germain] Memory usage 74.8% exceeded threshold 60%
+[2026-11-23 16:32:51] [INFO   ] [user:germain] Disk threshold set to 50%
+[2026-11-23 16:32:51] [WARNING] [user:germain] Disks over 50%: / (50%) /home (50%) /boot (50%) 
+[2026-11-23 16:32:51] [INFO   ] [user:germain] Listed 10 of 376 running processes
+[2026-11-23 16:32:51] [INFO   ] [user:germain] Process search 'sleep': 1 match(es)
+[2026-11-23 16:32:51] [ERROR  ] [user:germain] Invalid PID entered for search: 'abc'
+[2026-11-23 16:32:51] [INFO   ] [user:germain] PID search 999999: not found
+[2026-11-23 16:32:51] [WARNING] [user:germain] Terminate refused: PID 1 (systemd) is protected
+[2026-11-23 16:32:51] [WARNING] [user:germain] Terminate refused: no permission for PID 493 (systemd-journal)
+[2026-11-23 16:32:51] [ERROR  ] [user:germain] Terminate: invalid PID 'abc'
+[2026-11-23 16:32:51] [INFO   ] [user:germain] Terminate cancelled by user for PID 69446 (sleep)
+[2026-11-23 16:32:52] [INFO   ] [user:germain] Process PID 69446 (sleep) terminated (SIGTERM)
+[2026-11-23 16:32:52] [ERROR  ] [user:germain] Report failed: cannot create '/proc/forbidden'
+[2026-11-23 16:32:52] [ERROR  ] [user:germain] Report failed: no write permission for '/etc'
+[2026-11-23 16:32:54] [REPORT ] [user:germain] Health report generated: /home/germain/Works/Cprogramming/Programming_C_Summative/SystemHealthMonitor/reports/health_report_20261123_163254.txt
+[INFO] Log file: /home/germain/Works/Cprogramming/Programming_C_Summative/SystemHealthMonitor/logs/activity.log (21 entries)
+
+===== SYSTEM HEALTH & RESOURCE MONITOR =====
+ 1) Display system information
+ 2) Monitor CPU utilisation          (threshold 70%)
+ 3) Monitor memory utilisation       (threshold 60%)
+ 4) Monitor disk utilisation         (threshold 50%)
+ 5) View and search running processes
+ 6) Terminate a process
+ 7) Generate a system health report
+ 8) View activity history
+ 9) Clear activity log
+ 0) Exit
+Select an option [0-9]: 
+===== ACTIVITY HISTORY =====
+Filter by keyword, e.g. WARNING (Enter shows everything): [2026-11-23 16:32:51] [WARNING] [user:germain] Memory usage 74.8% exceeded threshold 60%
+[2026-11-23 16:32:51] [WARNING] [user:germain] Disks over 50%: / (50%) /home (50%) /boot (50%) 
+[2026-11-23 16:32:51] [WARNING] [user:germain] Terminate refused: PID 1 (systemd) is protected
+[2026-11-23 16:32:51] [WARNING] [user:germain] Terminate refused: no permission for PID 493 (systemd-journal)
+[INFO] Log file: /home/germain/Works/Cprogramming/Programming_C_Summative/SystemHealthMonitor/logs/activity.log (21 entries)
+
+===== SYSTEM HEALTH & RESOURCE MONITOR =====
+ 1) Display system information
+ 2) Monitor CPU utilisation          (threshold 70%)
+ 3) Monitor memory utilisation       (threshold 60%)
+ 4) Monitor disk utilisation         (threshold 50%)
+ 5) View and search running processes
+ 6) Terminate a process
+ 7) Generate a system health report
+ 8) View activity history
+ 9) Clear activity log
+ 0) Exit
+Select an option [0-9]: [ERROR] Invalid selection '42'. Enter a number from 0 to 9.
+
+===== SYSTEM HEALTH & RESOURCE MONITOR =====
+ 1) Display system information
+ 2) Monitor CPU utilisation          (threshold 70%)
+ 3) Monitor memory utilisation       (threshold 60%)
+ 4) Monitor disk utilisation         (threshold 50%)
+ 5) View and search running processes
+ 6) Terminate a process
+ 7) Generate a system health report
+ 8) View activity history
+ 9) Clear activity log
+ 0) Exit
+Select an option [0-9]: [INFO] Goodbye!
+
+===== SYSTEM HEALTH & RESOURCE MONITOR =====
+ 1) Display system information
+ 2) Monitor CPU utilisation          (threshold 80%)
+ 3) Monitor memory utilisation       (threshold 80%)
+ 4) Monitor disk utilisation         (threshold 85%)
+ 5) View and search running processes
+ 6) Terminate a process
+ 7) Generate a system health report
+ 8) View activity history
+ 9) Clear activity log
+ 0) Exit
+Select an option [0-9]: 
+===== CLEAR ACTIVITY LOG =====
+This will permanently delete 24 log entries. Continue? [y/N]: [INFO] Clear cancelled. Log kept.
+
+===== SYSTEM HEALTH & RESOURCE MONITOR =====
+ 1) Display system information
+ 2) Monitor CPU utilisation          (threshold 80%)
+ 3) Monitor memory utilisation       (threshold 80%)
+ 4) Monitor disk utilisation         (threshold 85%)
+ 5) View and search running processes
+ 6) Terminate a process
+ 7) Generate a system health report
+ 8) View activity history
+ 9) Clear activity log
+ 0) Exit
+Select an option [0-9]: [INFO] Goodbye!

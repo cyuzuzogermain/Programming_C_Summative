@@ -1,0 +1,23 @@
+[2026-11-23 16:32:50] [INFO   ] [user:germain] Session started
+[2026-11-23 16:32:50] [INFO   ] [user:germain] Displayed system information
+[2026-11-23 16:32:50] [INFO   ] [user:germain] CPU threshold set to 70%
+[2026-11-23 16:32:51] [INFO   ] [user:germain] CPU usage 29.4% (threshold 70%)
+[2026-11-23 16:32:51] [INFO   ] [user:germain] Memory threshold set to 60%
+[2026-11-23 16:32:51] [INFO   ] [user:germain] Memory usage 74.8% (threshold 60%)
+[2026-11-23 16:32:51] [WARNING] [user:germain] Memory usage 74.8% exceeded threshold 60%
+[2026-11-23 16:32:51] [INFO   ] [user:germain] Disk threshold set to 50%
+[2026-11-23 16:32:51] [WARNING] [user:germain] Disks over 50%: / (50%) /home (50%) /boot (50%) 
+[2026-11-23 16:32:51] [INFO   ] [user:germain] Listed 10 of 376 running processes
+[2026-11-23 16:32:51] [INFO   ] [user:germain] Process search 'sleep': 1 match(es)
+[2026-11-23 16:32:51] [ERROR  ] [user:germain] Invalid PID entered for search: 'abc'
+[2026-11-23 16:32:51] [INFO   ] [user:germain] PID search 999999: not found
+[2026-11-23 16:32:51] [WARNING] [user:germain] Terminate refused: PID 1 (systemd) is protected
+[2026-11-23 16:32:51] [WARNING] [user:germain] Terminate refused: no permission for PID 493 (systemd-journal)
+[2026-11-23 16:32:51] [ERROR  ] [user:germain] Terminate: invalid PID 'abc'
+[2026-11-23 16:32:51] [INFO   ] [user:germain] Terminate cancelled by user for PID 69446 (sleep)
+[2026-11-23 16:32:52] [INFO   ] [user:germain] Process PID 69446 (sleep) terminated (SIGTERM)
+[2026-11-23 16:32:52] [ERROR  ] [user:germain] Report failed: cannot create '/proc/forbidden'
+[2026-11-23 16:32:52] [ERROR  ] [user:germain] Report failed: no write permission for '/etc'
+[2026-11-23 16:32:54] [REPORT ] [user:germain] Health report generated: /home/germain/Works/Cprogramming/Programming_C_Summative/SystemHealthMonitor/reports/health_report_20261123_163254.txt
+[2026-11-23 16:32:54] [ERROR  ] [user:germain] Invalid menu selection: '42'
+[2026-11-23 16:32:54] [INFO   ] [user:germain] Session ended
