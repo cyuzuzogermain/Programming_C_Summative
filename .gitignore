@@ -1,0 +1,14 @@
+# Build artifacts
+*.o
+*.tmp
+student_records
+sales_system
+document_analyzer
+
+# Runtime output of the system monitor
+SystemHealthMonitor/logs/
+SystemHealthMonitor/reports/
+
+# Generated at runtime (samples/ keeps the committed examples)
+academic_report.txt
+DocumentAnalyzer/*_report.txt
