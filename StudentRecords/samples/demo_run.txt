@@ -1,0 +1,768 @@
+$ ./student_records    # session 1: CRUD, search, sort, report, save
+Loaded 7 student record(s) from students.txt.
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 7   Data file: students.txt
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 2
+ID         Name                     Programme                      Year Courses  Average
+---------------------------------------------------------------------------------------
+1003       Aline Mukamana           Software Engineering              2       3   79.25%
+1001       Jean Habimana            Computer Science                  1       3   46.00%
+1007       Grace Uwimana            Business Information Systems      3       2   84.50%
+1002       Eric Niyonzima           Software Engineering              2       3   55.75%
+1005       Diane Ingabire           Computer Science                  1       2   90.00%
+1004       Patrick Mugisha          Business Information Systems      3       2   43.50%
+1006       Claudine Uwase           Electrical Engineering            4       0      N/A
+Total: 7 student(s)
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 7   Data file: students.txt
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 1
+
+--- Register New Student ---
+Student ID (1-99999999): 1003
+  [ERROR] Student ID 1003 already exists. IDs must be unique.
+Student ID (1-99999999): 1008
+First name: J0hn
+  [ERROR] Names may only contain letters, spaces, '-' and '''.
+First name: Samuel
+Last name: Kayitare
+Programme of study: Computer Science
+Year of study (1-7): 9
+  [ERROR] Enter a whole number between 1 and 7.
+Year of study (1-7): 2
+Student 1008 registered.
+How many courses to add now? (0-20): 2
+ Course 1 of 2
+  Course code: CS101
+  Course name: Introduction to Programming
+  Maximum marks (1-1000): 100
+  Marks obtained: 150
+  [ERROR] Enter a number between 0.00 and 100.00.
+  Marks obtained: 74
+ Course 2 of 2
+  Course code: CS101
+  [ERROR] CS101 is already on this student's record.
+  Course code: MA102
+  Course name: Discrete Mathematics
+  Maximum marks (1-1000): 100
+  Marks obtained: 81
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 8   Data file: students.txt   (unsaved changes)
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 3
+Enter student ID: 1008
+
+----------- Student Details -----------
+Student ID   : 1008
+First name   : Samuel
+Last name    : Kayitare
+Programme    : Computer Science
+Year of study: 2
+Courses      : 2
+
+Academic performance of Samuel Kayitare (ID 1008)
+Code       Course                              Marks      Max  Percent Result
+--------------------------------------------------------------------------
+CS101      Introduction to Programming         74.00   100.00   74.00%   PASS
+MA102      Discrete Mathematics                81.00   100.00   81.00%   PASS
+--------------------------------------------------------------------------
+Overall average: 77.50%  |  Passed 2 of 2 course(s)  |  Status: PASSING
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 8   Data file: students.txt   (unsaved changes)
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 3
+Enter student ID: 9999
+  [ERROR] No student with ID 9999 exists.
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 8   Data file: students.txt   (unsaved changes)
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 4
+Enter student ID: 1002
+Press Enter to keep the current value.
+First name [Eric]: 
+Last name [Niyonzima]: 
+Programme [Software Engineering]: Computer Science
+Year of study [2]: 3
+Student 1002 updated.
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 8   Data file: students.txt   (unsaved changes)
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 6
+Enter student ID: 1006
+  Course code: EN101
+  Course name: Academic Writing
+  Maximum marks (1-1000): 100
+  Marks obtained: 61
+Course EN101 added to student 1006.
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 8   Data file: students.txt   (unsaved changes)
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 7
+Enter student ID: 1001
+
+Academic performance of Jean Habimana (ID 1001)
+Code       Course                              Marks      Max  Percent Result
+--------------------------------------------------------------------------
+CS101      Introduction to Programming         45.00   100.00   45.00%   FAIL
+MA102      Discrete Mathematics                38.00   100.00   38.00%   FAIL
+EN101      Academic Writing                    55.00   100.00   55.00%   PASS
+--------------------------------------------------------------------------
+Overall average: 46.00%  |  Passed 1 of 3 course(s)  |  Status: FAILING
+Course code to update: XX99
+  [ERROR] Course XX99 is not on this student's record.
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 8   Data file: students.txt   (unsaved changes)
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 7
+Enter student ID: 1001
+
+Academic performance of Jean Habimana (ID 1001)
+Code       Course                              Marks      Max  Percent Result
+--------------------------------------------------------------------------
+CS101      Introduction to Programming         45.00   100.00   45.00%   FAIL
+MA102      Discrete Mathematics                38.00   100.00   38.00%   FAIL
+EN101      Academic Writing                    55.00   100.00   55.00%   PASS
+--------------------------------------------------------------------------
+Overall average: 46.00%  |  Passed 1 of 3 course(s)  |  Status: FAILING
+Course code to update: MA102
+New marks for MA102 (0-100.00) [current 38.00]: -5
+  [ERROR] Enter a number between 0.00 and 100.00.
+New marks for MA102 (0-100.00) [current 38.00]: 52
+Marks for MA102 updated to 52.00 / 100.00.
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 8   Data file: students.txt   (unsaved changes)
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 8
+Enter student ID: 1001
+
+Academic performance of Jean Habimana (ID 1001)
+Code       Course                              Marks      Max  Percent Result
+--------------------------------------------------------------------------
+CS101      Introduction to Programming         45.00   100.00   45.00%   FAIL
+MA102      Discrete Mathematics                52.00   100.00   52.00%   PASS
+EN101      Academic Writing                    55.00   100.00   55.00%   PASS
+--------------------------------------------------------------------------
+Overall average: 50.67%  |  Passed 2 of 3 course(s)  |  Status: PASSING
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 8   Data file: students.txt   (unsaved changes)
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 9
+
+Search by:
+ 1. Student ID
+ 2. First or last name
+ 3. Programme of study
+Choice: 2
+Name (or part of it): uwi
+1 matching student(s):
+ID         Name                     Programme                      Year Courses  Average
+---------------------------------------------------------------------------------------
+1007       Grace Uwimana            Business Information Systems      3       2   84.50%
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 8   Data file: students.txt   (unsaved changes)
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 9
+
+Search by:
+ 1. Student ID
+ 2. First or last name
+ 3. Programme of study
+Choice: 3
+Programme (or part of it): software
+1 matching student(s):
+ID         Name                     Programme                      Year Courses  Average
+---------------------------------------------------------------------------------------
+1003       Aline Mukamana           Software Engineering              2       3   79.25%
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 8   Data file: students.txt   (unsaved changes)
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 9
+
+Search by:
+ 1. Student ID
+ 2. First or last name
+ 3. Programme of study
+Choice: 1
+Student ID: 4242
+No matching students found.
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 8   Data file: students.txt   (unsaved changes)
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 10
+
+Sort by:
+ 1. Student ID
+ 2. Name (alphabetical)
+ 3. Overall average
+ 4. Programme of study
+Choice: 2
+Order: 1 = ascending, 2 = descending: 1
+Students sorted.
+ID         Name                     Programme                      Year Courses  Average
+---------------------------------------------------------------------------------------
+1001       Jean Habimana            Computer Science                  1       3   50.67%
+1005       Diane Ingabire           Computer Science                  1       2   90.00%
+1008       Samuel Kayitare          Computer Science                  2       2   77.50%
+1004       Patrick Mugisha          Business Information Systems      3       2   43.50%
+1003       Aline Mukamana           Software Engineering              2       3   79.25%
+1002       Eric Niyonzima           Computer Science                  3       3   55.75%
+1006       Claudine Uwase           Electrical Engineering            4       1   61.00%
+1007       Grace Uwimana            Business Information Systems      3       2   84.50%
+Total: 8 student(s)
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 8   Data file: students.txt   (unsaved changes)
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 10
+
+Sort by:
+ 1. Student ID
+ 2. Name (alphabetical)
+ 3. Overall average
+ 4. Programme of study
+Choice: 3
+Order: 1 = ascending, 2 = descending: 2
+Students sorted.
+ID         Name                     Programme                      Year Courses  Average
+---------------------------------------------------------------------------------------
+1005       Diane Ingabire           Computer Science                  1       2   90.00%
+1007       Grace Uwimana            Business Information Systems      3       2   84.50%
+1003       Aline Mukamana           Software Engineering              2       3   79.25%
+1008       Samuel Kayitare          Computer Science                  2       2   77.50%
+1006       Claudine Uwase           Electrical Engineering            4       1   61.00%
+1002       Eric Niyonzima           Computer Science                  3       3   55.75%
+1001       Jean Habimana            Computer Science                  1       3   50.67%
+1004       Patrick Mugisha          Business Information Systems      3       2   43.50%
+Total: 8 student(s)
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 8   Data file: students.txt   (unsaved changes)
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 10
+
+Sort by:
+ 1. Student ID
+ 2. Name (alphabetical)
+ 3. Overall average
+ 4. Programme of study
+Choice: 4
+Order: 1 = ascending, 2 = descending: 1
+Students sorted.
+ID         Name                     Programme                      Year Courses  Average
+---------------------------------------------------------------------------------------
+1004       Patrick Mugisha          Business Information Systems      3       2   43.50%
+1007       Grace Uwimana            Business Information Systems      3       2   84.50%
+1001       Jean Habimana            Computer Science                  1       3   50.67%
+1005       Diane Ingabire           Computer Science                  1       2   90.00%
+1008       Samuel Kayitare          Computer Science                  2       2   77.50%
+1002       Eric Niyonzima           Computer Science                  3       3   55.75%
+1006       Claudine Uwase           Electrical Engineering            4       1   61.00%
+1003       Aline Mukamana           Software Engineering              2       3   79.25%
+Total: 8 student(s)
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 8   Data file: students.txt   (unsaved changes)
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 10
+
+Sort by:
+ 1. Student ID
+ 2. Name (alphabetical)
+ 3. Overall average
+ 4. Programme of study
+Choice: 1
+Order: 1 = ascending, 2 = descending: 1
+Students sorted.
+ID         Name                     Programme                      Year Courses  Average
+---------------------------------------------------------------------------------------
+1001       Jean Habimana            Computer Science                  1       3   50.67%
+1002       Eric Niyonzima           Computer Science                  3       3   55.75%
+1003       Aline Mukamana           Software Engineering              2       3   79.25%
+1004       Patrick Mugisha          Business Information Systems      3       2   43.50%
+1005       Diane Ingabire           Computer Science                  1       2   90.00%
+1006       Claudine Uwase           Electrical Engineering            4       1   61.00%
+1007       Grace Uwimana            Business Information Systems      3       2   84.50%
+1008       Samuel Kayitare          Computer Science                  2       2   77.50%
+Total: 8 student(s)
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 8   Data file: students.txt   (unsaved changes)
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 5
+Enter student ID: 1004
+Delete Patrick Mugisha (ID 1004) and all their courses? (y/n): n
+Deletion cancelled.
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 8   Data file: students.txt   (unsaved changes)
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 5
+Enter student ID: 1004
+Delete Patrick Mugisha (ID 1004) and all their courses? (y/n): y
+Student 1004 deleted.
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 7   Data file: students.txt   (unsaved changes)
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 5
+Enter student ID: 1004
+  [ERROR] No student with ID 1004 exists.
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 7   Data file: students.txt   (unsaved changes)
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 11
+==============================================================
+              ACADEMIC PERFORMANCE REPORT
+==============================================================
+Total registered students          : 7
+Total course registrations         : 16
+Distinct courses offered           : 5
+Overall average performance        : 71.24%
+Highest average                    : 90.00% - Diane Ingabire (ID 1005)
+Lowest average                     : 50.67% - Jean Habimana (ID 1001)
+Students passing (average >= 50%) : 7
+Students failing (average <  50%) : 0
+Course results passed / failed     : 14 / 2
+
+----------------- Average Performance per Course -----------------
+Code       Course                         Students   Average  Passed
+CS101      Introduction to Programming           5    72.40%    4/5 
+MA102      Discrete Mathematics                  4    66.00%    4/4 
+EN101      Academic Writing                      4    70.50%    4/4 
+CS201      Data Structures                       2    64.50%    1/2 
+BI301      Database Systems                      1    91.00%    1/1 
+
+------------------ Students per Programme ------------------------
+Computer Science                         4
+Software Engineering                     1
+Electrical Engineering                   1
+Business Information Systems             1
+==============================================================
+Save this report to academic_report.txt? (y/n): y
+Report saved to academic_report.txt.
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 7   Data file: students.txt   (unsaved changes)
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 12
+7 student record(s) saved to students.txt.
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 7   Data file: students.txt
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 99
+  [ERROR] Enter a whole number between 0 and 12.
+Select an option: abc
+  [ERROR] Enter a whole number between 0 and 12.
+Select an option: 0
+Goodbye!
+
+$ ./student_records    # session 2: records reloaded from students.txt
+Loaded 7 student record(s) from students.txt.
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 7   Data file: students.txt
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 2
+ID         Name                     Programme                      Year Courses  Average
+---------------------------------------------------------------------------------------
+1001       Jean Habimana            Computer Science                  1       3   50.67%
+1002       Eric Niyonzima           Computer Science                  3       3   55.75%
+1003       Aline Mukamana           Software Engineering              2       3   79.25%
+1005       Diane Ingabire           Computer Science                  1       2   90.00%
+1006       Claudine Uwase           Electrical Engineering            4       1   61.00%
+1007       Grace Uwimana            Business Information Systems      3       2   84.50%
+1008       Samuel Kayitare          Computer Science                  2       2   77.50%
+Total: 7 student(s)
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 7   Data file: students.txt
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 3
+Enter student ID: 1008
+
+----------- Student Details -----------
+Student ID   : 1008
+First name   : Samuel
+Last name    : Kayitare
+Programme    : Computer Science
+Year of study: 2
+Courses      : 2
+
+Academic performance of Samuel Kayitare (ID 1008)
+Code       Course                              Marks      Max  Percent Result
+--------------------------------------------------------------------------
+CS101      Introduction to Programming         74.00   100.00   74.00%   PASS
+MA102      Discrete Mathematics                81.00   100.00   81.00%   PASS
+--------------------------------------------------------------------------
+Overall average: 77.50%  |  Passed 2 of 2 course(s)  |  Status: PASSING
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 7   Data file: students.txt
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 0
+Goodbye!
+
+$ ./student_records corrupted.txt    # error handling for a malformed data file
+[WARNING] Line 3: course CS102 rejected (Invalid data) - skipped
+[WARNING] Line 4: student 2001 rejected (Duplicate record) - skipped
+[WARNING] Line 5: malformed STUDENT record - skipped
+[WARNING] Line 6: COURSE without a matching STUDENT - skipped
+[WARNING] Line 7: student 2002 rejected (Invalid data) - skipped
+[WARNING] Line 8: unknown record type 'GARBAGE LINE' - skipped
+[WARNING] 6 invalid line(s) were skipped while loading.
+Loaded 1 student record(s) from corrupted.txt.
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 1   Data file: corrupted.txt
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 2
+ID         Name                     Programme                      Year Courses  Average
+---------------------------------------------------------------------------------------
+2001       Valid Person             CS                                1       1   50.00%
+Total: 1 student(s)
+
+========= STUDENT ACADEMIC RECORDS SYSTEM =========
+  Students: 1   Data file: corrupted.txt
+ 1. Register a new student
+ 2. Display all students
+ 3. View student details
+ 4. Update student information
+ 5. Delete a student
+ 6. Add a course to a student
+ 7. Update course marks
+ 8. Display a student's academic performance
+ 9. Search students
+10. Sort students
+11. Generate academic report
+12. Save records to file
+ 0. Exit
+Select an option: 0
+Goodbye!

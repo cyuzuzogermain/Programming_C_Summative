@@ -1,0 +1,25 @@
+# Student Academic Records data file
+# STUDENT|id|first|last|programme|year|courseCount
+# COURSE|code|name|marks|maxMarks
+STUDENT|1003|Aline|Mukamana|Software Engineering|2|3
+COURSE|CS101|Introduction to Programming|85.00|100.00
+COURSE|MA102|Discrete Mathematics|72.00|100.00
+COURSE|CS201|Data Structures|160.00|200.00
+STUDENT|1001|Jean|Habimana|Computer Science|1|3
+COURSE|CS101|Introduction to Programming|45.00|100.00
+COURSE|MA102|Discrete Mathematics|38.00|100.00
+COURSE|EN101|Academic Writing|55.00|100.00
+STUDENT|1007|Grace|Uwimana|Business Information Systems|3|2
+COURSE|BI301|Database Systems|91.00|100.00
+COURSE|EN101|Academic Writing|78.00|100.00
+STUDENT|1002|Eric|Niyonzima|Software Engineering|2|3
+COURSE|CS101|Introduction to Programming|66.00|100.00
+COURSE|CS201|Data Structures|98.00|200.00
+COURSE|MA102|Discrete Mathematics|59.00|100.00
+STUDENT|1005|Diane|Ingabire|Computer Science|1|2
+COURSE|CS101|Introduction to Programming|92.00|100.00
+COURSE|EN101|Academic Writing|88.00|100.00
+STUDENT|1004|Patrick|Mugisha|Business Information Systems|3|2
+COURSE|BI301|Database Systems|40.00|100.00
+COURSE|EN101|Academic Writing|47.00|100.00
+STUDENT|1006|Claudine|Uwase|Electrical Engineering|4|0

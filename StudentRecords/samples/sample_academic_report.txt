@@ -1,0 +1,27 @@
+==============================================================
+              ACADEMIC PERFORMANCE REPORT
+==============================================================
+Total registered students          : 7
+Total course registrations         : 16
+Distinct courses offered           : 5
+Overall average performance        : 71.24%
+Highest average                    : 90.00% - Diane Ingabire (ID 1005)
+Lowest average                     : 50.67% - Jean Habimana (ID 1001)
+Students passing (average >= 50%) : 7
+Students failing (average <  50%) : 0
+Course results passed / failed     : 14 / 2
+
+----------------- Average Performance per Course -----------------
+Code       Course                         Students   Average  Passed
+CS101      Introduction to Programming           5    72.40%    4/5 
+MA102      Discrete Mathematics                  4    66.00%    4/4 
+EN101      Academic Writing                      4    70.50%    4/4 
+CS201      Data Structures                       2    64.50%    1/2 
+BI301      Database Systems                      1    91.00%    1/1 
+
+------------------ Students per Programme ------------------------
+Computer Science                         4
+Software Engineering                     1
+Electrical Engineering                   1
+Business Information Systems             1
+==============================================================
