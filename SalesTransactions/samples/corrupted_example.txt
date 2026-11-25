@@ -1,0 +1,8 @@
+1001|Laptop|2|850.00|2026-11-02
+1001|Duplicate|1|10.00|2026-11-02
+1002|Negative qty|-3|10.00|2026-11-02
+1003|Bad price|1|-4.00|2026-11-02
+1004|Bad date|1|4.00|2026-13-40
+1005|Missing fields|1
+not a transaction at all
+1006|Valid Item|1|9.99|2026-11-03

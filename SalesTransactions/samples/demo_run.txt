@@ -1,0 +1,893 @@
+$ ./sales_system    # session 1
+Loaded 10 transaction(s) from sales.txt.
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 2
+ID         Product                       Qty   Unit Price          Total  Date      
+-----------------------------------------------------------------------------------
+1001       Laptop                          2       850.00        1700.00  2026-11-02
+1002       Wireless Mouse                 10        15.50         155.00  2026-11-02
+1003       USB-C Cable                    25         6.99         174.75  2026-11-05
+1004       Monitor 24in                    3       189.90         569.70  2026-11-07
+1005       Mechanical Keyboard             5        74.00         370.00  2026-11-09
+1006       Printer Ink                    12        22.75         273.00  2026-11-12
+1007       Laptop                          1       920.00         920.00  2026-11-15
+1008       Wireless Mouse                  4        15.50          62.00  2026-11-18
+1009       External SSD 1TB                6        99.00         594.00  2026-11-19
+1010       USB-C Cable                    40         6.49         259.60  2026-11-21
+10 transaction(s)  [memory: 10 of 16 slots used]
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 1
+
+--- Add New Transaction ---
+Transaction ID (1-99999999): 1003
+  [ERROR] Transaction ID 1003 already exists. Duplicate IDs are not allowed.
+Transaction ID (1-99999999): 1011
+Product name: Webcam
+Quantity sold (1-1000000): -5
+  [ERROR] Enter a whole number between 1 and 1000000.
+Quantity sold (1-1000000): 0
+  [ERROR] Enter a whole number between 1 and 1000000.
+Quantity sold (1-1000000): 3
+Unit price (0.01-10000000): abc
+  [ERROR] Enter a number between 0.01 and 10000000.00.
+Unit price (0.01-10000000): 45.50
+Date (YYYY-MM-DD, 't' = today): 2026-02-30
+  [ERROR] Enter a valid date as YYYY-MM-DD (2000-2100), or 't' for today.
+Date (YYYY-MM-DD, 't' = today): 2026-11-20
+Transaction 1011 added. Total amount: 136.50
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  11 transaction(s) | file: sales.txt | unsaved changes
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 3
+ID of the transaction to update: 1004
+ID         Product                       Qty   Unit Price          Total  Date      
+-----------------------------------------------------------------------------------
+1004       Monitor 24in                    3       189.90         569.70  2026-11-07
+Press Enter to keep the current value.
+Product name [Monitor 24in]: 
+Quantity [3]: 4
+Unit price [189.90]: 
+Date [2026-11-07]: 
+Transaction 1004 updated:
+1004       Monitor 24in                    4       189.90         759.60  2026-11-07
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  11 transaction(s) | file: sales.txt | unsaved changes
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 3
+ID of the transaction to update: 9999
+  [ERROR] No transaction with ID 9999 exists.
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  11 transaction(s) | file: sales.txt | unsaved changes
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 4
+ID of the transaction to delete: 1006
+ID         Product                       Qty   Unit Price          Total  Date      
+-----------------------------------------------------------------------------------
+1006       Printer Ink                    12        22.75         273.00  2026-11-12
+Delete this transaction? (y/n): n
+Deletion cancelled.
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  11 transaction(s) | file: sales.txt | unsaved changes
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 4
+ID of the transaction to delete: 1006
+ID         Product                       Qty   Unit Price          Total  Date      
+-----------------------------------------------------------------------------------
+1006       Printer Ink                    12        22.75         273.00  2026-11-12
+Delete this transaction? (y/n): y
+Transaction 1006 deleted.
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt | unsaved changes
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 5
+
+--- Process Sales Data (function pointers) ---
+ 1. Calculate total revenue
+ 2. Calculate average transaction value
+ 3. Identify highest-value transaction
+ 4. Identify lowest-value transaction
+ 5. Calculate total units sold
+ 6. Run ALL operations
+Choice: 6
+
+> Calculate total revenue
+Total revenue: 5131.45
+
+> Calculate average transaction value
+Average transaction value: 513.15 (over 10 transactions)
+
+> Identify highest-value transaction
+Highest-value transaction:
+ID         Product                       Qty   Unit Price          Total  Date      
+-----------------------------------------------------------------------------------
+1001       Laptop                          2       850.00        1700.00  2026-11-02
+
+> Identify lowest-value transaction
+Lowest-value transaction:
+ID         Product                       Qty   Unit Price          Total  Date      
+-----------------------------------------------------------------------------------
+1008       Wireless Mouse                  4        15.50          62.00  2026-11-18
+
+> Calculate total units sold
+Total units sold: 100
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt | unsaved changes
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 5
+
+--- Process Sales Data (function pointers) ---
+ 1. Calculate total revenue
+ 2. Calculate average transaction value
+ 3. Identify highest-value transaction
+ 4. Identify lowest-value transaction
+ 5. Calculate total units sold
+ 6. Run ALL operations
+Choice: 3
+
+> Identify highest-value transaction
+Highest-value transaction:
+ID         Product                       Qty   Unit Price          Total  Date      
+-----------------------------------------------------------------------------------
+1001       Laptop                          2       850.00        1700.00  2026-11-02
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt | unsaved changes
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 6
+
+--- Filter Transactions (callbacks) ---
+ 1. Transactions above a specified amount
+ 2. Transactions involving a specified product
+ 3. Count transactions with quantity >= N
+ 4. Count transactions on a specific date
+Choice: 1
+Show transactions with a total above: 500
+ID         Product                       Qty   Unit Price          Total  Date      
+-----------------------------------------------------------------------------------
+1001       Laptop                          2       850.00        1700.00  2026-11-02
+1004       Monitor 24in                    4       189.90         759.60  2026-11-07
+1007       Laptop                          1       920.00         920.00  2026-11-15
+1009       External SSD 1TB                6        99.00         594.00  2026-11-19
+4 transaction(s) above 500.00.
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt | unsaved changes
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 6
+
+--- Filter Transactions (callbacks) ---
+ 1. Transactions above a specified amount
+ 2. Transactions involving a specified product
+ 3. Count transactions with quantity >= N
+ 4. Count transactions on a specific date
+Choice: 2
+Product (or part of the name): mouse
+ID         Product                       Qty   Unit Price          Total  Date      
+-----------------------------------------------------------------------------------
+1002       Wireless Mouse                 10        15.50         155.00  2026-11-02
+1008       Wireless Mouse                  4        15.50          62.00  2026-11-18
+2 transaction(s) involve 'mouse'.
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt | unsaved changes
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 6
+
+--- Filter Transactions (callbacks) ---
+ 1. Transactions above a specified amount
+ 2. Transactions involving a specified product
+ 3. Count transactions with quantity >= N
+ 4. Count transactions on a specific date
+Choice: 3
+Minimum quantity: 5
+5 transaction(s) sold at least 5 unit(s).
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt | unsaved changes
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 6
+
+--- Filter Transactions (callbacks) ---
+ 1. Transactions above a specified amount
+ 2. Transactions involving a specified product
+ 3. Count transactions with quantity >= N
+ 4. Count transactions on a specific date
+Choice: 4
+Date (YYYY-MM-DD): 2026-11-02
+2 transaction(s) on 2026-11-02, revenue 1855.00.
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt | unsaved changes
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 7
+
+--- Search Transactions ---
+ 1. By transaction ID
+ 2. By product name
+ 3. By transaction amount
+Choice: 1
+Transaction ID: 1002
+ID         Product                       Qty   Unit Price          Total  Date      
+-----------------------------------------------------------------------------------
+1002       Wireless Mouse                 10        15.50         155.00  2026-11-02
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt | unsaved changes
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 7
+
+--- Search Transactions ---
+ 1. By transaction ID
+ 2. By product name
+ 3. By transaction amount
+Choice: 1
+Transaction ID: 4242
+No transaction with ID 4242 was found.
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt | unsaved changes
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 7
+
+--- Search Transactions ---
+ 1. By transaction ID
+ 2. By product name
+ 3. By transaction amount
+Choice: 2
+Product name (partial match allowed): cable
+ID         Product                       Qty   Unit Price          Total  Date      
+-----------------------------------------------------------------------------------
+1003       USB-C Cable                    25         6.99         174.75  2026-11-05
+1010       USB-C Cable                    40         6.49         259.60  2026-11-21
+2 matching transaction(s).
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt | unsaved changes
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 7
+
+--- Search Transactions ---
+ 1. By transaction ID
+ 2. By product name
+ 3. By transaction amount
+Choice: 3
+Minimum amount: 100
+Maximum amount (same as minimum for an exact match): 1000
+ID         Product                       Qty   Unit Price          Total  Date      
+-----------------------------------------------------------------------------------
+1002       Wireless Mouse                 10        15.50         155.00  2026-11-02
+1003       USB-C Cable                    25         6.99         174.75  2026-11-05
+1004       Monitor 24in                    4       189.90         759.60  2026-11-07
+1005       Mechanical Keyboard             5        74.00         370.00  2026-11-09
+1007       Laptop                          1       920.00         920.00  2026-11-15
+1009       External SSD 1TB                6        99.00         594.00  2026-11-19
+1010       USB-C Cable                    40         6.49         259.60  2026-11-21
+1011       Webcam                          3        45.50         136.50  2026-11-20
+8 matching transaction(s).
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt | unsaved changes
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 7
+
+--- Search Transactions ---
+ 1. By transaction ID
+ 2. By product name
+ 3. By transaction amount
+Choice: 3
+Minimum amount: 99999
+Maximum amount (same as minimum for an exact match): 99999
+No transactions between 99999.00 and 99999.00.
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt | unsaved changes
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 8
+
+--- Sort Transactions ---
+ 1. Transaction ID
+ 2. Product name
+ 3. Total amount (ascending)
+ 4. Total amount (descending)
+Choice: 2
+Sorted by Product name:
+ID         Product                       Qty   Unit Price          Total  Date      
+-----------------------------------------------------------------------------------
+1009       External SSD 1TB                6        99.00         594.00  2026-11-19
+1001       Laptop                          2       850.00        1700.00  2026-11-02
+1007       Laptop                          1       920.00         920.00  2026-11-15
+1005       Mechanical Keyboard             5        74.00         370.00  2026-11-09
+1004       Monitor 24in                    4       189.90         759.60  2026-11-07
+1003       USB-C Cable                    25         6.99         174.75  2026-11-05
+1010       USB-C Cable                    40         6.49         259.60  2026-11-21
+1011       Webcam                          3        45.50         136.50  2026-11-20
+1002       Wireless Mouse                 10        15.50         155.00  2026-11-02
+1008       Wireless Mouse                  4        15.50          62.00  2026-11-18
+10 transaction(s)  [memory: 10 of 16 slots used]
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt | unsaved changes
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 8
+
+--- Sort Transactions ---
+ 1. Transaction ID
+ 2. Product name
+ 3. Total amount (ascending)
+ 4. Total amount (descending)
+Choice: 4
+Sorted by Total amount (descending):
+ID         Product                       Qty   Unit Price          Total  Date      
+-----------------------------------------------------------------------------------
+1001       Laptop                          2       850.00        1700.00  2026-11-02
+1007       Laptop                          1       920.00         920.00  2026-11-15
+1004       Monitor 24in                    4       189.90         759.60  2026-11-07
+1009       External SSD 1TB                6        99.00         594.00  2026-11-19
+1005       Mechanical Keyboard             5        74.00         370.00  2026-11-09
+1010       USB-C Cable                    40         6.49         259.60  2026-11-21
+1003       USB-C Cable                    25         6.99         174.75  2026-11-05
+1002       Wireless Mouse                 10        15.50         155.00  2026-11-02
+1011       Webcam                          3        45.50         136.50  2026-11-20
+1008       Wireless Mouse                  4        15.50          62.00  2026-11-18
+10 transaction(s)  [memory: 10 of 16 slots used]
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt | unsaved changes
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 8
+
+--- Sort Transactions ---
+ 1. Transaction ID
+ 2. Product name
+ 3. Total amount (ascending)
+ 4. Total amount (descending)
+Choice: 1
+Sorted by Transaction ID:
+ID         Product                       Qty   Unit Price          Total  Date      
+-----------------------------------------------------------------------------------
+1001       Laptop                          2       850.00        1700.00  2026-11-02
+1002       Wireless Mouse                 10        15.50         155.00  2026-11-02
+1003       USB-C Cable                    25         6.99         174.75  2026-11-05
+1004       Monitor 24in                    4       189.90         759.60  2026-11-07
+1005       Mechanical Keyboard             5        74.00         370.00  2026-11-09
+1007       Laptop                          1       920.00         920.00  2026-11-15
+1008       Wireless Mouse                  4        15.50          62.00  2026-11-18
+1009       External SSD 1TB                6        99.00         594.00  2026-11-19
+1010       USB-C Cable                    40         6.49         259.60  2026-11-21
+1011       Webcam                          3        45.50         136.50  2026-11-20
+10 transaction(s)  [memory: 10 of 16 slots used]
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt | unsaved changes
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 9
+Product for the revenue breakdown (Enter to skip): Laptop
+
+================ SALES SUMMARY REPORT ================
+Total number of transactions : 10
+Total revenue                : 5131.45
+Average transaction value    : 513.15
+Highest transaction value    : 1700.00 (ID 1001, Laptop)
+Lowest transaction value     : 62.00 (ID 1008, Wireless Mouse)
+Total quantity sold          : 100 units
+Revenue for 'Laptop': 2620.00 from 2 transaction(s) (51.1% of total)
+======================================================
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt | unsaved changes
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 9
+Product for the revenue breakdown (Enter to skip): Tablet
+
+================ SALES SUMMARY REPORT ================
+Total number of transactions : 10
+Total revenue                : 5131.45
+Average transaction value    : 513.15
+Highest transaction value    : 1700.00 (ID 1001, Laptop)
+Lowest transaction value     : 62.00 (ID 1008, Wireless Mouse)
+Total quantity sold          : 100 units
+Revenue for 'Tablet': no transactions for this product
+======================================================
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt | unsaved changes
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 10
+10 transaction(s) saved to sales.txt.
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 11
+10 transaction(s) loaded from sales.txt.
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 12
+  [ERROR] Enter a whole number between 0 and 11.
+Select an option: x
+  [ERROR] Enter a whole number between 0 and 11.
+Select an option: 0
+Goodbye!
+
+$ ./sales_system    # session 2: data persisted from session 1
+Loaded 10 transaction(s) from sales.txt.
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 2
+ID         Product                       Qty   Unit Price          Total  Date      
+-----------------------------------------------------------------------------------
+1001       Laptop                          2       850.00        1700.00  2026-11-02
+1002       Wireless Mouse                 10        15.50         155.00  2026-11-02
+1003       USB-C Cable                    25         6.99         174.75  2026-11-05
+1004       Monitor 24in                    4       189.90         759.60  2026-11-07
+1005       Mechanical Keyboard             5        74.00         370.00  2026-11-09
+1007       Laptop                          1       920.00         920.00  2026-11-15
+1008       Wireless Mouse                  4        15.50          62.00  2026-11-18
+1009       External SSD 1TB                6        99.00         594.00  2026-11-19
+1010       USB-C Cable                    40         6.49         259.60  2026-11-21
+1011       Webcam                          3        45.50         136.50  2026-11-20
+10 transaction(s)  [memory: 10 of 16 slots used]
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  10 transaction(s) | file: sales.txt
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 0
+Goodbye!
+
+$ ./sales_system corrupted_example.txt    # invalid records rejected on load
+[WARNING] Line 2 (ID 1001): A transaction with this ID already exists - skipped
+[WARNING] Line 3 is malformed - skipped
+[WARNING] Line 4 (ID 1003): Invalid transaction data - skipped
+[WARNING] Line 5 (ID 1004): Invalid transaction data - skipped
+[WARNING] Line 6 is malformed - skipped
+[WARNING] Line 7 is malformed - skipped
+[WARNING] 6 invalid line(s) skipped while loading 'samples/corrupted_example.txt'.
+Loaded 2 transaction(s) from samples/corrupted_example.txt.
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  2 transaction(s) | file: samples/corrupted_example.txt
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 2
+ID         Product                       Qty   Unit Price          Total  Date      
+-----------------------------------------------------------------------------------
+1001       Laptop                          2       850.00        1700.00  2026-11-02
+1006       Valid Item                      1         9.99           9.99  2026-11-03
+2 transaction(s)  [memory: 2 of 4 slots used]
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  2 transaction(s) | file: samples/corrupted_example.txt
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 0
+Goodbye!
+
+$ ./sales_system empty.txt    # empty store: no division by zero
+No saved data found at 'empty_nonexistent.txt' - starting with no transactions.
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  0 transaction(s) | file: empty_nonexistent.txt
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 5
+
+--- Process Sales Data (function pointers) ---
+ 1. Calculate total revenue
+ 2. Calculate average transaction value
+ 3. Identify highest-value transaction
+ 4. Identify lowest-value transaction
+ 5. Calculate total units sold
+ 6. Run ALL operations
+Choice: 6
+
+> Calculate total revenue
+Total revenue: 0.00
+
+> Calculate average transaction value
+Average transaction value: N/A (no transactions)
+
+> Identify highest-value transaction
+No transactions recorded.
+
+> Identify lowest-value transaction
+No transactions recorded.
+
+> Calculate total units sold
+Total units sold: 0
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  0 transaction(s) | file: empty_nonexistent.txt
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 6
+No transactions recorded yet.
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  0 transaction(s) | file: empty_nonexistent.txt
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 9
+
+================ SALES SUMMARY REPORT ================
+No transactions recorded - nothing to report.
+======================================================
+
+===== SALES TRANSACTION MANAGEMENT SYSTEM =====
+  0 transaction(s) | file: empty_nonexistent.txt
+ 1. Add New Transaction
+ 2. Display All Transactions
+ 3. Update Transaction
+ 4. Delete Transaction
+ 5. Process Sales Data
+ 6. Filter Transactions (Callbacks)
+ 7. Search Transactions
+ 8. Sort Transactions
+ 9. Generate Sales Report
+10. Save Transactions
+11. Load Transactions
+ 0. Exit
+Select an option: 0
+Goodbye!
