@@ -1,0 +1,11 @@
+# Sales transactions: id|product|quantity|unitPrice|date
+1001|Laptop|2|850.00|2026-11-02
+1002|Wireless Mouse|10|15.50|2026-11-02
+1003|USB-C Cable|25|6.99|2026-11-05
+1004|Monitor 24in|3|189.90|2026-11-07
+1005|Mechanical Keyboard|5|74.00|2026-11-09
+1006|Printer Ink|12|22.75|2026-11-12
+1007|Laptop|1|920.00|2026-11-15
+1008|Wireless Mouse|4|15.50|2026-11-18
+1009|External SSD 1TB|6|99.00|2026-11-19
+1010|USB-C Cable|40|6.49|2026-11-21
