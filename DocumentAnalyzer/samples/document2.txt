@@ -1,0 +1,8 @@
+Embedded systems programming in C
+=================================
+Microcontrollers such as the ATmega328P run firmware written in C.
+Pointers, structures and bit manipulation are everyday tools.
+Real-time constraints mean code must be predictable and efficient.
+Many IOT products are built around low-cost microcontrollers.
+Interrupt service routines should be short and fast.
+Debugging often relies on serial output and logic analysers.

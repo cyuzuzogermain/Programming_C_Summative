@@ -1,0 +1,100 @@
+########## 1. Normal run: three documents, one thread each ##########
+$ ../document_analyzer IoT document1.txt document2.txt document3.txt
+===== MULTI-THREADED DOCUMENT ANALYZER =====
+
+Search Keyword: IoT
+Number of Input Files: 3
+Report Directory: .
+
+[Thread 1] Created for document1.txt
+[Thread 1] Processing document1.txt ...
+[Thread 2] Created for document2.txt
+[Thread 3] Created for document3.txt
+[Thread 2] Processing document2.txt ...
+[Thread 1] Successfully processed document1.txt (8 occurrences)
+[Thread 3] Processing document3.txt ...
+[Thread 2] Successfully processed document2.txt (1 occurrence)
+[Thread 3] Successfully processed document3.txt (0 occurrences)
+
+===== PROCESSING SUMMARY =====
+document1.txt: Completed - 11 line(s), 8 occurrence(s), 7 matching line(s) -> ./document1_report.txt
+document2.txt: Completed - 8 line(s), 1 occurrence(s), 1 matching line(s) -> ./document2_report.txt
+document3.txt: Completed - 5 line(s), 0 occurrence(s), 0 matching line(s) [keyword not found] -> ./document3_report.txt
+
+All processing tasks completed.
+Reports generated successfully.
+[exit status: 0]
+
+########## 2. Error handling: missing file, directory, permission denied ##########
+$ ../document_analyzer -o out iot missing.txt sub locked.txt sub/document1.txt
+===== MULTI-THREADED DOCUMENT ANALYZER =====
+
+Search Keyword: iot
+Number of Input Files: 4
+Report Directory: out
+
+[Thread 1] Created for missing.txt
+[Thread 1] Processing missing.txt ...
+[Thread 2] Created for sub
+[Thread 2] Processing sub ...
+[Thread 3] Created for locked.txt
+[Thread 3] Processing locked.txt ...
+[Thread 4] Created for sub/document1.txt
+[Thread 4] Processing sub/document1.txt ...
+[Thread 4] Successfully processed sub/document1.txt (1 occurrence)
+[Thread 1] ERROR processing missing.txt: cannot access file: No such file or directory
+[Thread 2] ERROR processing sub: not a regular file
+[Thread 3] ERROR processing locked.txt: cannot open file: Permission denied
+
+===== PROCESSING SUMMARY =====
+missing.txt: Failed (input file error) - cannot access file: No such file or directory
+sub: Failed (input file error) - not a regular file
+locked.txt: Failed (input file error) - cannot open file: Permission denied
+sub/document1.txt: Completed - 8 line(s), 1 occurrence(s), 1 matching line(s) -> out/document1_report.txt
+
+1 of 4 processing task(s) completed successfully; 3 failed.
+[exit status: 1]
+
+########## 3. Usage errors ##########
+$ ../document_analyzer
+[ERROR] A keyword and at least one input file are required.
+Usage: ../document_analyzer [-o output_dir] "keyword" file1 [file2 ...]
+  Searches every file concurrently (one thread per file) for the keyword
+  (case-insensitive) and writes <file>_report.txt for each input.
+  -o DIR   directory for the reports (default: current directory)
+[exit status: 2]
+
+$ ../document_analyzer  document1.txt
+[ERROR] The search keyword must not be empty.
+[exit status: 2]
+
+$ ../document_analyzer -o /no/such/dir IoT document1.txt
+[ERROR] Output directory '/no/such/dir' does not exist.
+[exit status: 2]
+
+########## 4. Same file name in two folders -> unique report names ##########
+$ ../document_analyzer IoT a/notes.txt b/notes.txt
+===== MULTI-THREADED DOCUMENT ANALYZER =====
+
+Search Keyword: IoT
+Number of Input Files: 2
+Report Directory: .
+
+[Thread 1] Created for a/notes.txt
+[Thread 1] Processing a/notes.txt ...
+[Thread 2] Created for b/notes.txt
+[Thread 2] Processing b/notes.txt ...
+[Thread 1] Successfully processed a/notes.txt (8 occurrences)
+[Thread 2] Successfully processed b/notes.txt (1 occurrence)
+
+===== PROCESSING SUMMARY =====
+a/notes.txt: Completed - 11 line(s), 8 occurrence(s), 7 matching line(s) -> ./notes_report.txt
+b/notes.txt: Completed - 8 line(s), 1 occurrence(s), 1 matching line(s) -> ./notes_2_report.txt
+
+All processing tasks completed.
+Reports generated successfully.
+[exit status: 0]
+
+$ ls *_report.txt
+notes_2_report.txt
+notes_report.txt

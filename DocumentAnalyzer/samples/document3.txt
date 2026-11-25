@@ -1,0 +1,5 @@
+Operating systems manage hardware resources for applications.
+Processes are isolated from each other by virtual memory.
+Threads within a process share the same address space.
+POSIX threads (pthreads) provide a portable threading API.
+Schedulers decide which thread runs on each CPU core.

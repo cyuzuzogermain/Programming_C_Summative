@@ -1,0 +1,21 @@
+==================== DOCUMENT ANALYSIS REPORT ====================
+Generated            : 2026-11-25 21:11:32
+Processed by thread  : 1
+Input file           : document1.txt
+Search keyword       : "IoT" (case-insensitive)
+Total lines processed: 11
+Keyword occurrences  : 8
+Matching lines       : 7
+Line numbers         : 1, 2, 3, 4, 6, 7, 10
+
+------------------------- Matching lines -------------------------
+Line 1     (1 match): The Internet of Things (IoT) connects everyday objects to the internet.
+Line 2     (1 match): IoT devices collect data through sensors and share it over networks.
+Line 3     (1 match): Smart homes use IoT thermostats, lights and door locks.
+Line 4     (1 match): Security remains one of the biggest challenges in IoT deployments.
+Line 6     (1 match): Many IoT systems rely on lightweight protocols such as MQTT and CoAP.
+Line 7     (1 match): Edge computing reduces latency by processing iot data close to its source.
+Line 10    (2 matches): An IoT gateway bridges local devices and cloud platforms; every IoT node reports to it.
+
+Processing status    : SUCCESS - analysis completed
+==================================================================

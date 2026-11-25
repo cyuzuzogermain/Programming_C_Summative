@@ -1,0 +1,11 @@
+The Internet of Things (IoT) connects everyday objects to the internet.
+IoT devices collect data through sensors and share it over networks.
+Smart homes use IoT thermostats, lights and door locks.
+Security remains one of the biggest challenges in IoT deployments.
+
+Many IoT systems rely on lightweight protocols such as MQTT and CoAP.
+Edge computing reduces latency by processing iot data close to its source.
+Agriculture benefits from soil moisture sensors and automated irrigation.
+Healthcare uses wearable devices to monitor patients remotely.
+An IoT gateway bridges local devices and cloud platforms; every IoT node reports to it.
+Battery life and power consumption are key design constraints.

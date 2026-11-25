@@ -1,0 +1,15 @@
+==================== DOCUMENT ANALYSIS REPORT ====================
+Generated            : 2026-11-25 21:11:32
+Processed by thread  : 2
+Input file           : document2.txt
+Search keyword       : "IoT" (case-insensitive)
+Total lines processed: 8
+Keyword occurrences  : 1
+Matching lines       : 1
+Line numbers         : 6
+
+------------------------- Matching lines -------------------------
+Line 6     (1 match): Many IOT products are built around low-cost microcontrollers.
+
+Processing status    : SUCCESS - analysis completed
+==================================================================

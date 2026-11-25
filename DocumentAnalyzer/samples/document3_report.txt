@@ -1,0 +1,12 @@
+==================== DOCUMENT ANALYSIS REPORT ====================
+Generated            : 2026-11-25 21:11:32
+Processed by thread  : 3
+Input file           : document3.txt
+Search keyword       : "IoT" (case-insensitive)
+Total lines processed: 5
+Keyword occurrences  : 0
+Matching lines       : 0
+Line numbers         : none - keyword not found in this file
+
+Processing status    : SUCCESS - analysis completed
+==================================================================
