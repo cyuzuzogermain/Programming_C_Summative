@@ -2,11 +2,28 @@
 
 An Arduino Uno project, simulated in Tinkercad. It counts the people inside a facility with a fixed maximum capacity (default **10**, set by `MAX_CAPACITY` in the sketch). One push button records an entry and another records an exit.
 
+**Tinkercad circuit:** [Smart Occupancy System](https://www.tinkercad.com/things/iSLxuJcIeTw-smart-occupancy-system?sharecode=cU35vxw4GfxqkCvoARtxbGzY_TrSu_l6ch357K_rOdc)
+
 ## Files
 
 | File | Contents |
 |------|----------|
 | `SmartOccupancy.ino` | The full sketch. Paste it into the Tinkercad **Code → Text** editor. |
+| `screenshots/` | Screenshots of the running simulation |
+
+## Simulation screenshots
+
+**Empty facility.** The LCD shows `Inside: 0/10` and `Available: 10`, and the green LED is on.
+
+![Empty facility, green LED on](screenshots/01-empty-green-led.png)
+
+**Exit pressed while empty.** The exit is rejected and the LCD shows `EMPTY-EXIT DENY`.
+
+![Exit denied when the facility is empty](screenshots/02-exit-denied-when-empty.png)
+
+**Facility full.** At `10/10`, an entry attempt is rejected with `FULL-ENTRY DENY`. The red LED is on and the green LED is off.
+
+![Entry denied at full capacity, red LED on](screenshots/03-full-entry-denied-red-led.png)
 
 ## Components
 
