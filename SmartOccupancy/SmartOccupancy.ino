@@ -98,7 +98,7 @@ typedef enum {
 } OperationResult;
 
 /** Main occupancy record: everything we know about the facility. */
-typedef struct {
+typedef struct OccupancyRecord {
     int           currentOccupancy;   /* People inside right now           */
     int           maxCapacity;        /* Maximum people allowed            */
     int           peakOccupancy;      /* Highest occupancy seen            */
@@ -110,14 +110,14 @@ typedef struct {
 } OccupancyRecord;
 
 /** One entry in the event log. */
-typedef struct {
+typedef struct OccupancyEvent {
     EventType     type;               /* What happened                     */
     int           occupancyAfter;     /* Occupancy after the event         */
     unsigned long timestampMs;        /* millis() when it happened         */
 } OccupancyEvent;
 
 /** Circular buffer of recent events (buffer is allocated with calloc). */
-typedef struct {
+typedef struct EventLog {
     OccupancyEvent *events;           /* Dynamically allocated array       */
     int             capacity;         /* Number of slots in the array      */
     int             count;            /* Slots currently used              */
@@ -125,7 +125,7 @@ typedef struct {
 } EventLog;
 
 /** State needed to debounce one push button without delay(). */
-typedef struct {
+typedef struct DebouncedButton {
     uint8_t       pin;
     int           stableState;        /* Debounced level                   */
     int           lastReading;        /* Raw level seen last loop          */
@@ -133,7 +133,7 @@ typedef struct {
 } DebouncedButton;
 
 /** State for the non-blocking LCD refresh. */
-typedef struct {
+typedef struct DisplayState {
     unsigned long lastRefreshMs;      /* When the LCD was last redrawn     */
     unsigned long noticeUntilMs;      /* Show notice until this time       */
     const char   *noticeText;         /* Temporary second-line message     */
@@ -157,37 +157,44 @@ DisplayState    display;
  *  Function prototypes
  * ------------------------------------------------------------------------- */
 
+/*
+ * Note: signatures use "struct X *" and int for the enum parameters on purpose.
+ * The Arduino/Tinkercad build step auto-generates prototypes and may place
+ * them above the typedefs; "struct X" is still valid there, a bare typedef
+ * name is not.
+ */
+
 /* Memory management */
-OccupancyRecord *createOccupancyRecord(int maxCapacity);
-void             destroyOccupancyRecord(OccupancyRecord **record);
-EventLog        *createEventLog(int capacity);
-void             destroyEventLog(EventLog **log);
+struct OccupancyRecord *createOccupancyRecord(int maxCapacity);
+void             destroyOccupancyRecord(struct OccupancyRecord **record);
+struct EventLog        *createEventLog(int capacity);
+void             destroyEventLog(struct EventLog **log);
 bool             initialiseSystemMemory(void);
 void             releaseSystemMemory(void);
 void             haltWithError(const char *message);
 
 /* Occupancy logic */
-OperationResult  processEntry(OccupancyRecord *record, EventLog *log);
-OperationResult  processExit(OccupancyRecord *record, EventLog *log);
-int              getRemainingCapacity(const OccupancyRecord *record);
-bool             isFacilityFull(const OccupancyRecord *record);
-void             logEvent(EventLog *log, EventType type, int occupancyAfter);
+int              processEntry(struct OccupancyRecord *record, struct EventLog *log);
+int              processExit(struct OccupancyRecord *record, struct EventLog *log);
+int              getRemainingCapacity(const struct OccupancyRecord *record);
+bool             isFacilityFull(const struct OccupancyRecord *record);
+void             logEvent(struct EventLog *log, int type, int occupancyAfter);
 
 /* Input */
-void             initButton(DebouncedButton *button, uint8_t pin);
-bool             wasButtonPressed(DebouncedButton *button, unsigned long now);
+void             initButton(struct DebouncedButton *button, uint8_t pin);
+bool             wasButtonPressed(struct DebouncedButton *button, unsigned long now);
 void             handleSerialCommands(void);
 
 /* Output */
-void             updateStatusLeds(const OccupancyRecord *record);
-void             updateLcd(const OccupancyRecord *record, DisplayState *state, unsigned long now);
-void             forceLcdRefresh(DisplayState *state);
-void             showLcdNotice(DisplayState *state, const char *text, unsigned long now);
+void             updateStatusLeds(const struct OccupancyRecord *record);
+void             updateLcd(const struct OccupancyRecord *record, struct DisplayState *state, unsigned long now);
+void             forceLcdRefresh(struct DisplayState *state);
+void             showLcdNotice(struct DisplayState *state, const char *text, unsigned long now);
 void             printLcdLine(uint8_t row, const char *text);
-void             printStatistics(const OccupancyRecord *record);
-void             printEventLog(const EventLog *log);
-void             printEventMessage(EventType type, const OccupancyRecord *record);
-const char      *eventTypeToString(EventType type);
+void             printStatistics(const struct OccupancyRecord *record);
+void             printEventLog(const struct EventLog *log);
+void             printEventMessage(int type, const struct OccupancyRecord *record);
+const char      *eventTypeToString(int type);
 void             printHelp(void);
 void             resetSystem(void);
 
@@ -262,7 +269,7 @@ void loop() {
  * @maxCapacity: maximum number of people allowed (must be > 0).
  * Return: pointer to the new record, or NULL if allocation failed.
  */
-OccupancyRecord *createOccupancyRecord(int maxCapacity) {
+struct OccupancyRecord *createOccupancyRecord(int maxCapacity) {
     if (maxCapacity <= 0) {
         Serial.println(F("[ERROR] Max capacity must be greater than zero"));
         return NULL;
@@ -291,7 +298,7 @@ OccupancyRecord *createOccupancyRecord(int maxCapacity) {
  * so it cannot be used after being freed.
  * @record: address of the pointer to free.
  */
-void destroyOccupancyRecord(OccupancyRecord **record) {
+void destroyOccupancyRecord(struct OccupancyRecord **record) {
     if (record != NULL && *record != NULL) {
         free(*record);
         *record = NULL;
@@ -303,7 +310,7 @@ void destroyOccupancyRecord(OccupancyRecord **record) {
  * The slots array uses calloc() so every event starts zeroed.
  * Return: pointer to the new log, or NULL if allocation failed.
  */
-EventLog *createEventLog(int capacity) {
+struct EventLog *createEventLog(int capacity) {
     if (capacity <= 0) {
         return NULL;
     }
@@ -331,7 +338,7 @@ EventLog *createEventLog(int capacity) {
  * destroyEventLog() - frees the event buffer, then the log itself,
  * and clears the caller's pointer.
  */
-void destroyEventLog(EventLog **log) {
+void destroyEventLog(struct EventLog **log) {
     if (log != NULL && *log != NULL) {
         free((*log)->events);
         (*log)->events = NULL;
@@ -394,7 +401,7 @@ void haltWithError(const char *message) {
  * @log:    event log that receives the result.
  * Return: OP_SUCCESS, OP_ERROR_FULL or OP_ERROR_NULL_RECORD.
  */
-OperationResult processEntry(OccupancyRecord *record, EventLog *log) {
+int processEntry(struct OccupancyRecord *record, struct EventLog *log) {
     if (record == NULL) {
         Serial.println(F("[ERROR] processEntry(): record is NULL"));
         return OP_ERROR_NULL_RECORD;
@@ -425,7 +432,7 @@ OperationResult processEntry(OccupancyRecord *record, EventLog *log) {
  * Removes one person unless the facility is already empty.
  * Return: OP_SUCCESS, OP_ERROR_EMPTY or OP_ERROR_NULL_RECORD.
  */
-OperationResult processExit(OccupancyRecord *record, EventLog *log) {
+int processExit(struct OccupancyRecord *record, struct EventLog *log) {
     if (record == NULL) {
         Serial.println(F("[ERROR] processExit(): record is NULL"));
         return OP_ERROR_NULL_RECORD;
@@ -450,7 +457,7 @@ OperationResult processExit(OccupancyRecord *record, EventLog *log) {
 /**
  * getRemainingCapacity() - number of people who can still enter.
  */
-int getRemainingCapacity(const OccupancyRecord *record) {
+int getRemainingCapacity(const struct OccupancyRecord *record) {
     if (record == NULL) {
         return 0;
     }
@@ -460,7 +467,7 @@ int getRemainingCapacity(const OccupancyRecord *record) {
 /**
  * isFacilityFull() - true when occupancy has reached the maximum.
  */
-bool isFacilityFull(const OccupancyRecord *record) {
+bool isFacilityFull(const struct OccupancyRecord *record) {
     if (record == NULL) {
         return true;  /* treat an invalid record as "no entry allowed" */
     }
@@ -471,13 +478,13 @@ bool isFacilityFull(const OccupancyRecord *record) {
  * logEvent() - stores an event in the circular log, overwriting the oldest
  * entry once the buffer is full.
  */
-void logEvent(EventLog *log, EventType type, int occupancyAfter) {
+void logEvent(struct EventLog *log, int type, int occupancyAfter) {
     if (log == NULL || log->events == NULL) {
         return;
     }
 
     OccupancyEvent *slot = &log->events[log->nextIndex];
-    slot->type           = type;
+    slot->type           = (EventType)type;
     slot->occupancyAfter = occupancyAfter;
     slot->timestampMs    = millis();
 
@@ -494,7 +501,7 @@ void logEvent(EventLog *log, EventType type, int occupancyAfter) {
 /**
  * initButton() - sets up a button pin and its debounce state.
  */
-void initButton(DebouncedButton *button, uint8_t pin) {
+void initButton(struct DebouncedButton *button, uint8_t pin) {
     button->pin          = pin;
     pinMode(pin, INPUT);              /* external 10k pull-down resistor */
     button->stableState  = digitalRead(pin);
@@ -508,7 +515,7 @@ void initButton(DebouncedButton *button, uint8_t pin) {
  * accepted. Returns true once per press (on the press edge only), so
  * holding the button down counts as a single person.
  */
-bool wasButtonPressed(DebouncedButton *button, unsigned long now) {
+bool wasButtonPressed(struct DebouncedButton *button, unsigned long now) {
     int reading = digitalRead(button->pin);
 
     if (reading != button->lastReading) {
@@ -574,7 +581,7 @@ void resetSystem(void) {
  * updateStatusLeds() - green while there is room, red once full
  * (including straight after a denied entry, which can only happen when full).
  */
-void updateStatusLeds(const OccupancyRecord *record) {
+void updateStatusLeds(const struct OccupancyRecord *record) {
     bool full = isFacilityFull(record);
     digitalWrite(PIN_GREEN_LED, full ? LOW : HIGH);
     digitalWrite(PIN_RED_LED,   full ? HIGH : LOW);
@@ -583,7 +590,7 @@ void updateStatusLeds(const OccupancyRecord *record) {
 /**
  * forceLcdRefresh() - makes the next updateLcd() call redraw immediately.
  */
-void forceLcdRefresh(DisplayState *state) {
+void forceLcdRefresh(struct DisplayState *state) {
     state->lastRefreshMs = millis() - LCD_REFRESH_MS;
 }
 
@@ -591,7 +598,7 @@ void forceLcdRefresh(DisplayState *state) {
  * showLcdNotice() - shows @text on the second LCD row for
  * NOTICE_DURATION_MS, without blocking.
  */
-void showLcdNotice(DisplayState *state, const char *text, unsigned long now) {
+void showLcdNotice(struct DisplayState *state, const char *text, unsigned long now) {
     state->noticeText    = text;
     state->noticeUntilMs = now + NOTICE_DURATION_MS;
 }
@@ -601,7 +608,7 @@ void showLcdNotice(DisplayState *state, const char *text, unsigned long now) {
  *   Row 0: "Inside: 3/10"
  *   Row 1: "Available: 7" / "FULL - NO ENTRY" / a temporary notice
  */
-void updateLcd(const OccupancyRecord *record, DisplayState *state, unsigned long now) {
+void updateLcd(const struct OccupancyRecord *record, struct DisplayState *state, unsigned long now) {
     if ((now - state->lastRefreshMs) < LCD_REFRESH_MS || record == NULL) {
         return;
     }
@@ -645,7 +652,7 @@ void printLcdLine(uint8_t row, const char *text) {
 /**
  * printEventMessage() - reports one entry/exit event on the Serial Monitor.
  */
-void printEventMessage(EventType type, const OccupancyRecord *record) {
+void printEventMessage(int type, const struct OccupancyRecord *record) {
     Serial.print(F("["));
     Serial.print(millis());
     Serial.print(F(" ms] "));
@@ -682,7 +689,7 @@ void printEventMessage(EventType type, const OccupancyRecord *record) {
 /**
  * printStatistics() - full occupancy report on the Serial Monitor.
  */
-void printStatistics(const OccupancyRecord *record) {
+void printStatistics(const struct OccupancyRecord *record) {
     if (record == NULL) {
         Serial.println(F("[ERROR] No occupancy record available"));
         return;
@@ -708,7 +715,7 @@ void printStatistics(const OccupancyRecord *record) {
 /**
  * eventTypeToString() - short label for an event type.
  */
-const char *eventTypeToString(EventType type) {
+const char *eventTypeToString(int type) {
     switch (type) {
         case EVENT_ENTRY:        return "ENTRY";
         case EVENT_EXIT:         return "EXIT";
@@ -721,7 +728,7 @@ const char *eventTypeToString(EventType type) {
 /**
  * printEventLog() - prints the stored events, oldest first.
  */
-void printEventLog(const EventLog *log) {
+void printEventLog(const struct EventLog *log) {
     if (log == NULL || log->events == NULL) {
         Serial.println(F("[ERROR] Event log not available"));
         return;
