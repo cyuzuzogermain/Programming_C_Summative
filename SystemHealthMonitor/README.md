@@ -124,4 +124,16 @@ The levels are `INFO`, `WARNING`, `ERROR` and `REPORT`. The log records:
 | `sample_health_report.txt` | A generated health report |
 | `sample_activity.log` | The activity log from that session |
 
-Screenshots for the submission: run `./system_monitor.sh` in a terminal and capture options 2, 3, 4, 5 and 6. The colour output is only visible in a real terminal.
+## Screenshots
+
+**CPU monitoring (option 2).** Usage measured over 1 second, the core count and load average, and the top 10 processes by CPU.
+
+![CPU monitoring](screenshots/01-cpu-monitoring.png)
+
+**Memory monitoring (option 3).** Utilisation is 80.2%, above the 80% threshold, so the script prints a warning.
+
+![Memory monitoring with a threshold warning](screenshots/02-memory-monitoring.png)
+
+**Disk monitoring (option 4).** Every real filesystem is shown with its status against the 85% threshold.
+
+![Disk monitoring](screenshots/03-disk-monitoring.png)
